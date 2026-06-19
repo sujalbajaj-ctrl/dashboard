@@ -178,7 +178,7 @@ body {
   width: 100%;
   min-width: 1280px;
   height: calc(100dvh - var(--header-h) - var(--board-h) - 34px);
-  table-layout: fixed;
+  table-layout: auto;
   border-collapse: separate;
   border-spacing: 0 4px;
 }
@@ -211,21 +211,25 @@ thead th:last-child {
 }
 
 .th-courier {
+  width: 230px;
   min-width: 230px;
   text-align: left !important;
 }
 
 .th-pickup {
-  min-width: 270px;
+  width: 310px;
+  min-width: 310px;
 }
 
 .th-data,
 .th-manifest {
-  min-width: 145px;
+  width: 135px;
+  min-width: 135px;
 }
 
 .th-subtotal {
-  min-width: 145px;
+  width: 125px;
+  min-width: 125px;
 }
 
 tbody tr {
@@ -243,6 +247,8 @@ tbody td {
   line-height: 1;
   text-align: center;
   vertical-align: middle;
+  overflow: hidden;
+  word-break: normal;
 }
 
 tbody tr:nth-child(even) td {
@@ -298,6 +304,7 @@ tbody tr.row-soon td:first-child {
 
 .cell-pickup {
   font-size: clamp(1rem, 1.1vw, 1.55rem);
+  line-height: 1.1;
 }
 
 .pickup-running,
@@ -312,7 +319,9 @@ tbody tr.row-soon td:first-child {
   font-size: clamp(0.95rem, 1.05vw, 1.45rem);
   font-weight: 900;
   line-height: 1;
-  white-space: nowrap;
+  max-width: 100%;
+  text-align: center;
+  white-space: normal;
 }
 
 .pickup-running {
@@ -329,7 +338,7 @@ tbody tr.row-soon td:first-child {
   color: #d5e3ef;
   font-size: clamp(1rem, 1.1vw, 1.55rem);
   font-weight: 900;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .cell-na,
@@ -426,13 +435,13 @@ tbody tr.row-soon td:first-child {
 .ops-table.focus-view .pickup-running,
 .ops-table.focus-view .pickup-soon {
   min-height: 54px;
-  padding: 10px 16px;
+  padding: 8px 12px;
   border-width: 3px;
-  font-size: clamp(1.35rem, 1.65vw, 2.3rem);
+  font-size: clamp(1.2rem, 1.45vw, 2rem);
 }
 
 .ops-table.focus-view .pickup-normal {
-  font-size: clamp(1.55rem, 1.85vw, 2.55rem);
+  font-size: clamp(1.35rem, 1.6vw, 2.2rem);
 }
 
 .ops-table.focus-view .grand-total-row {
