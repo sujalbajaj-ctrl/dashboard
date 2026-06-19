@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>Lenskart | OPS Dashboard</title>
-  <link rel="stylesheet" href="style.css?v=1">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <header class="header">
@@ -25,6 +25,17 @@
   </header>
 
   <main class="main">
+    <section class="board-status" aria-live="polite">
+      <div id="boardMode" class="board-mode">ALL COURIERS</div>
+      <div class="board-progress" aria-hidden="true">
+        <span id="cycleDot1" class="cycle-dot active"></span>
+        <span id="cycleDot2" class="cycle-dot"></span>
+        <span id="cycleDot3" class="cycle-dot"></span>
+        <span id="cycleDot4" class="cycle-dot"></span>
+        <span id="cycleDot5" class="cycle-dot"></span>
+      </div>
+    </section>
+
     <table class="ops-table" id="opsTable">
       <thead>
         <tr>
@@ -53,6 +64,6 @@
     </table>
   </main>
 
-  <script src="script.js?v=1"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

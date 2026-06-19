@@ -127,6 +127,44 @@ body {
   overflow-x: auto;
 }
 
+.board-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 1280px;
+  height: 46px;
+  margin-bottom: 6px;
+  padding: 0 16px;
+  background: #111b29;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+}
+
+.board-mode {
+  color: var(--brand-strong);
+  font-size: clamp(1.05rem, 1.2vw, 1.65rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.board-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cycle-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #536475;
+}
+
+.cycle-dot.active {
+  width: 42px;
+  background: var(--warn);
+}
+
 .ops-table {
   width: 100%;
   min-width: 1280px;
@@ -338,6 +376,55 @@ tbody tr.row-soon td:first-child {
   color: var(--brand-strong) !important;
   text-align: left !important;
   white-space: nowrap;
+}
+
+.ops-table.focus-view {
+  border-spacing: 0 16px;
+}
+
+.ops-table.focus-view thead th {
+  height: 74px;
+  padding: 12px 16px;
+  font-size: clamp(1.2rem, 1.35vw, 1.9rem);
+}
+
+.ops-table.focus-view tbody tr {
+  height: 142px;
+}
+
+.ops-table.focus-view tbody td {
+  padding: 22px 18px;
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+  font-size: clamp(2.6rem, 3vw, 4.3rem);
+}
+
+.ops-table.focus-view .cell-rank {
+  font-size: clamp(2rem, 2.2vw, 3rem);
+}
+
+.ops-table.focus-view .courier-badge {
+  font-size: clamp(2.3rem, 2.8vw, 4rem);
+}
+
+.ops-table.focus-view .cell-pickup {
+  font-size: clamp(2rem, 2.2vw, 3.2rem);
+}
+
+.ops-table.focus-view .pickup-running,
+.ops-table.focus-view .pickup-soon {
+  min-height: 68px;
+  padding: 12px 18px;
+  border-width: 4px;
+  font-size: clamp(1.8rem, 2vw, 3rem);
+}
+
+.ops-table.focus-view .pickup-normal {
+  font-size: clamp(2rem, 2.15vw, 3.1rem);
+}
+
+.ops-table.focus-view .grand-total-row {
+  display: none;
 }
 
 ::-webkit-scrollbar {

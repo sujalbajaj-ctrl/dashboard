@@ -1,5 +1,8 @@
 const SHEET_GET_URL = "https://script.google.com/macros/s/AKfycby2xeJeM81Pk5lky5tscZnXgj0KuP6iN9H6Q7TbZtMXMsJWWFi0k9DPlhF03x2S_T78/exec";
 const COUNTS_REFRESH_MS = 30_000;
+const FULL_VIEW_MS = 10_000;
+const GROUP_VIEW_MS = 5_000;
+const GROUP_SIZE = 4;
 
 const COURIERS = [
   "BLITZNDD", "BLUEDART", "BUSYBEESPPD", "BusybeesSDD",
@@ -17,6 +20,7 @@ let counts = {
 };
 let lastUpdated = null;
 let monitorUpdated = null;
+const cycleStartedAt = Date.now();
 
 function toMin(t) {
   const [tm, ap] = t.split(" ");
@@ -97,6 +101,45 @@ function buildRows(nowMin) {
     });
 }
 
+function getBoardCycle() {
+  const elapsed = (Date.now() - cycleStartedAt) % (FULL_VIEW_MS + GROUP_VIEW_MS * 4);
+  if (elapsed < FULL_VIEW_MS) {
+    return {
+      mode: "all",
+      page: 0,
+      label: "ALL COURIERS",
+      dot: 0,
+    };
+  }
+
+  const page = Math.floor((elapsed - FULL_VIEW_MS) / GROUP_VIEW_MS);
+  return {
+    mode: "group",
+    page,
+    label: `COURIER GROUP ${page + 1} / 4`,
+    dot: page + 1,
+  };
+}
+
+function visibleRowsForCycle(rows, cycle) {
+  if (cycle.mode === "all") return rows;
+  const start = cycle.page * GROUP_SIZE;
+  return rows.slice(start, start + GROUP_SIZE);
+}
+
+function updateBoardStatus(cycle) {
+  const modeEl = document.getElementById("boardMode");
+  const tableEl = document.getElementById("opsTable");
+
+  modeEl.textContent = cycle.label;
+  tableEl.classList.toggle("focus-view", cycle.mode === "group");
+
+  for (let i = 0; i < 5; i++) {
+    const dot = document.getElementById(`cycleDot${i + 1}`);
+    dot.classList.toggle("active", i === cycle.dot);
+  }
+}
+
 function hasAnyCounts() {
   return ["manifest", "b2c", "b2b", "storePacking"]
     .some(group => Object.keys(counts[group] || {}).length > 0);
@@ -157,11 +200,15 @@ function renderTable() {
   document.getElementById("clock").textContent = formatClock(ist);
 
   const rows = buildRows(nowMin);
+  const cycle = getBoardCycle();
+  const visibleRows = visibleRowsForCycle(rows, cycle);
   const tbody = document.getElementById("tableBody");
 
-  tbody.innerHTML = rows.map((r, i) => `
+  updateBoardStatus(cycle);
+
+  tbody.innerHTML = visibleRows.map((r, i) => `
     <tr class="${rowClass(r.slot)}">
-      <td class="cell-rank">${i + 1}</td>
+      <td class="cell-rank">${cycle.mode === "all" ? i + 1 : cycle.page * GROUP_SIZE + i + 1}</td>
       <td class="cell-courier"><span class="courier-badge">${r.courier}</span></td>
       ${pickupCell(r.slot)}
       ${valueCell(r.storePacking, "storePacking")}
