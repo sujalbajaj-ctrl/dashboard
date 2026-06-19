@@ -130,9 +130,12 @@ function visibleRowsForCycle(rows, cycle) {
 function updateBoardStatus(cycle) {
   const modeEl = document.getElementById("boardMode");
   const tableEl = document.getElementById("opsTable");
+  const bodyEl = document.body;
 
   modeEl.textContent = cycle.label;
   tableEl.classList.toggle("focus-view", cycle.mode === "group");
+  bodyEl.classList.remove("theme-all", "theme-page-1", "theme-page-2", "theme-page-3", "theme-page-4");
+  bodyEl.classList.add(cycle.mode === "all" ? "theme-all" : `theme-page-${cycle.page + 1}`);
 
   for (let i = 0; i < 5; i++) {
     const dot = document.getElementById(`cycleDot${i + 1}`);
