@@ -30,30 +30,45 @@ body.theme-all {
   --page-accent: var(--brand);
   --page-accent-strong: var(--brand-strong);
   --page-panel: #111b29;
+  --page-row: #101722;
+  --page-row-alt: #172232;
+  --page-row-line: #314255;
 }
 
 body.theme-page-1 {
   --page-accent: #3cff9a;
   --page-accent-strong: #a7ffd0;
   --page-panel: #0b2518;
+  --page-row: #071d13;
+  --page-row-alt: #0d2a1b;
+  --page-row-line: #2b6f4b;
 }
 
 body.theme-page-2 {
   --page-accent: #ffd447;
   --page-accent-strong: #fff0a3;
   --page-panel: #2b2409;
+  --page-row: #201a06;
+  --page-row-alt: #2d2509;
+  --page-row-line: #786323;
 }
 
 body.theme-page-3 {
   --page-accent: #7aa7ff;
   --page-accent-strong: #c5d8ff;
   --page-panel: #101d37;
+  --page-row: #0b1429;
+  --page-row-alt: #111f3d;
+  --page-row-line: #3e5f9e;
 }
 
 body.theme-page-4 {
   --page-accent: #ff8f70;
   --page-accent-strong: #ffd1c4;
   --page-panel: #301611;
+  --page-row: #24100d;
+  --page-row-alt: #331713;
+  --page-row-line: #8a4a3a;
 }
 
 html {
@@ -268,9 +283,9 @@ tbody tr {
 
 tbody td {
   padding: 7px 12px;
-  background: var(--panel);
-  border-top: 2px solid var(--line);
-  border-bottom: 2px solid var(--line);
+  background: var(--page-row, var(--panel));
+  border-top: 2px solid var(--page-row-line, var(--line));
+  border-bottom: 2px solid var(--page-row-line, var(--line));
   color: var(--text);
   font-size: clamp(1.25rem, 1.35vw, 1.9rem);
   font-weight: 900;
@@ -282,16 +297,16 @@ tbody td {
 }
 
 tbody tr:nth-child(even) td {
-  background: var(--panel-strong);
+  background: var(--page-row-alt, var(--panel-strong));
 }
 
 tbody td:first-child {
-  border-left: 2px solid var(--line);
+  border-left: 2px solid var(--page-row-line, var(--line));
   border-radius: 8px 0 0 8px;
 }
 
 tbody td:last-child {
-  border-right: 2px solid var(--line);
+  border-right: 2px solid var(--page-row-line, var(--line));
   border-radius: 0 8px 8px 0;
 }
 
@@ -403,9 +418,9 @@ tbody tr.row-soon td:first-child {
 .grand-total-row td {
   height: var(--all-total-h);
   padding: 8px 12px;
-  background: #08111e !important;
-  border-top: 4px solid var(--brand) !important;
-  border-bottom: 4px solid var(--brand) !important;
+  background: var(--page-panel, #08111e) !important;
+  border-top: 4px solid var(--page-accent, var(--brand)) !important;
+  border-bottom: 4px solid var(--page-accent, var(--brand)) !important;
   color: var(--text);
   font-size: clamp(1.25rem, 1.35vw, 1.9rem);
   font-weight: 900;
@@ -413,12 +428,12 @@ tbody tr.row-soon td:first-child {
 }
 
 .grand-total-row td:first-child {
-  border-left: 9px solid var(--brand) !important;
+  border-left: 9px solid var(--page-accent, var(--brand)) !important;
   border-radius: 8px 0 0 8px;
 }
 
 .grand-total-row td:last-child {
-  border-right: 5px solid var(--brand) !important;
+  border-right: 5px solid var(--page-accent, var(--brand)) !important;
   border-radius: 0 8px 8px 0;
 }
 
@@ -448,6 +463,18 @@ tbody tr.row-soon td:first-child {
   border-top-width: 3px;
   border-bottom-width: 3px;
   font-size: clamp(2rem, 2.35vw, 3.25rem);
+}
+
+.ops-table.focus-view tbody td:first-child {
+  border-left: 10px solid var(--page-accent, var(--brand));
+}
+
+.ops-table.focus-view tbody tr.row-running td:first-child {
+  border-left-color: var(--good);
+}
+
+.ops-table.focus-view tbody tr.row-soon td:first-child {
+  border-left-color: var(--warn);
 }
 
 .ops-table.focus-view .cell-rank {
