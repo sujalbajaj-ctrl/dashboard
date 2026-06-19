@@ -33,17 +33,14 @@ body {
 }
 
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
   display: grid;
   grid-template-columns: minmax(360px, 1fr) auto minmax(300px, 1fr);
   align-items: center;
-  gap: 28px;
-  min-height: 116px;
-  padding: 20px 34px;
+  gap: 20px;
+  min-height: 78px;
+  padding: 12px 28px;
   background: #080d15;
-  border-bottom: 8px solid var(--brand);
+  border-bottom: 6px solid var(--brand);
 }
 
 .header-left {
@@ -54,9 +51,9 @@ body {
 }
 
 .live-dot {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
   border-radius: 999px;
   background: var(--danger);
   box-shadow: 0 0 0 8px rgba(255, 77, 94, 0.18);
@@ -71,16 +68,16 @@ body {
 
 .title {
   color: var(--text);
-  font-size: clamp(2.2rem, 2.4vw, 3.4rem);
+  font-size: clamp(1.7rem, 2vw, 2.7rem);
   font-weight: 900;
   line-height: 1;
   white-space: nowrap;
 }
 
 .subtitle {
-  margin-top: 8px;
+  margin-top: 4px;
   color: var(--brand-strong);
-  font-size: clamp(1.05rem, 1.1vw, 1.55rem);
+  font-size: clamp(0.95rem, 1vw, 1.35rem);
   font-weight: 800;
   letter-spacing: 0;
 }
@@ -91,7 +88,7 @@ body {
 
 .clock {
   color: var(--warn);
-  font-size: clamp(2rem, 2.6vw, 3.5rem);
+  font-size: clamp(1.6rem, 2.1vw, 2.8rem);
   font-weight: 900;
   line-height: 1;
   white-space: nowrap;
@@ -105,8 +102,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 54px;
-  padding: 10px 18px;
+  min-height: 42px;
+  padding: 8px 14px;
   border: 2px solid currentColor;
   border-radius: 8px;
   font-size: clamp(1rem, 1vw, 1.4rem);
@@ -126,7 +123,7 @@ body {
 
 .main {
   width: 100%;
-  padding: 18px 22px 28px;
+  padding: 8px 14px 12px;
   overflow-x: auto;
 }
 
@@ -134,23 +131,17 @@ body {
   width: 100%;
   min-width: 1280px;
   border-collapse: separate;
-  border-spacing: 0 10px;
-}
-
-thead {
-  position: sticky;
-  top: 116px;
-  z-index: 5;
+  border-spacing: 0 4px;
 }
 
 thead th {
-  height: 70px;
-  padding: 10px 16px;
+  height: 48px;
+  padding: 7px 12px;
   color: #d9faff;
   background: #162334;
   border-top: 2px solid var(--line);
-  border-bottom: 4px solid var(--brand);
-  font-size: clamp(1rem, 1vw, 1.35rem);
+  border-bottom: 3px solid var(--brand);
+  font-size: clamp(0.85rem, 0.9vw, 1.15rem);
   font-weight: 900;
   line-height: 1.12;
   text-align: center;
@@ -189,16 +180,16 @@ thead th:last-child {
 }
 
 tbody tr {
-  height: 82px;
+  height: 46px;
 }
 
 tbody td {
-  padding: 14px 16px;
+  padding: 7px 12px;
   background: var(--panel);
   border-top: 2px solid var(--line);
   border-bottom: 2px solid var(--line);
   color: var(--text);
-  font-size: clamp(1.65rem, 1.65vw, 2.35rem);
+  font-size: clamp(1.25rem, 1.35vw, 1.9rem);
   font-weight: 900;
   line-height: 1;
   text-align: center;
@@ -225,7 +216,7 @@ tbody tr.row-running td {
 }
 
 tbody tr.row-running td:first-child {
-  border-left: 12px solid var(--good);
+  border-left: 9px solid var(--good);
 }
 
 tbody tr.row-soon td {
@@ -234,12 +225,12 @@ tbody tr.row-soon td {
 }
 
 tbody tr.row-soon td:first-child {
-  border-left: 12px solid var(--warn);
+  border-left: 9px solid var(--warn);
 }
 
 .cell-rank {
   color: var(--muted);
-  font-size: clamp(1.25rem, 1.25vw, 1.8rem);
+  font-size: clamp(1rem, 1.05vw, 1.45rem);
 }
 
 .cell-courier {
@@ -250,14 +241,14 @@ tbody tr.row-soon td:first-child {
   display: inline-block;
   max-width: 100%;
   color: var(--text);
-  font-size: clamp(1.45rem, 1.45vw, 2.05rem);
+  font-size: clamp(1.15rem, 1.25vw, 1.7rem);
   font-weight: 900;
   line-height: 1.05;
   white-space: normal;
 }
 
 .cell-pickup {
-  font-size: clamp(1.25rem, 1.3vw, 1.85rem);
+  font-size: clamp(1rem, 1.1vw, 1.55rem);
 }
 
 .pickup-running,
@@ -265,11 +256,11 @@ tbody tr.row-soon td:first-child {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 8px 14px;
-  border: 3px solid currentColor;
+  min-height: 34px;
+  padding: 5px 10px;
+  border: 2px solid currentColor;
   border-radius: 8px;
-  font-size: clamp(1.2rem, 1.2vw, 1.75rem);
+  font-size: clamp(0.95rem, 1.05vw, 1.45rem);
   font-weight: 900;
   line-height: 1;
   white-space: nowrap;
@@ -287,7 +278,7 @@ tbody tr.row-soon td:first-child {
 
 .pickup-normal {
   color: #d5e3ef;
-  font-size: clamp(1.3rem, 1.35vw, 1.9rem);
+  font-size: clamp(1rem, 1.1vw, 1.55rem);
   font-weight: 900;
   white-space: nowrap;
 }
@@ -322,19 +313,19 @@ tbody tr.row-soon td:first-child {
 }
 
 .grand-total-row td {
-  height: 88px;
-  padding: 16px;
+  height: 56px;
+  padding: 8px 12px;
   background: #08111e !important;
-  border-top: 5px solid var(--brand) !important;
-  border-bottom: 5px solid var(--brand) !important;
+  border-top: 4px solid var(--brand) !important;
+  border-bottom: 4px solid var(--brand) !important;
   color: var(--text);
-  font-size: clamp(1.65rem, 1.7vw, 2.45rem);
+  font-size: clamp(1.25rem, 1.35vw, 1.9rem);
   font-weight: 900;
   text-align: center;
 }
 
 .grand-total-row td:first-child {
-  border-left: 12px solid var(--brand) !important;
+  border-left: 9px solid var(--brand) !important;
   border-radius: 8px 0 0 8px;
 }
 
@@ -374,9 +365,5 @@ tbody tr.row-soon td:first-child {
   .header-center,
   .header-right {
     text-align: left;
-  }
-
-  thead {
-    top: 0;
   }
 }
