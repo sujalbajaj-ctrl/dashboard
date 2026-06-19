@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Lenskart | OPS Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <div class="live-dot" aria-hidden="true"></div>
+      <div>
+        <div class="title">LENSKART OPS DASHBOARD</div>
+        <div class="subtitle">NXS2 Pickup Manifest Tracker</div>
+      </div>
+    </div>
+    <div class="header-center">
+      <div id="clock" class="clock"></div>
+    </div>
+    <div class="header-right">
+      <div id="lastUpdated" class="last-updated stale">Waiting for data...</div>
+    </div>
+  </header>
+
+  <main class="main">
+    <table class="ops-table" id="opsTable">
+      <thead>
+        <tr>
+          <th class="th-rank">#</th>
+          <th class="th-courier">COURIER</th>
+          <th class="th-pickup">PICKUP WINDOW</th>
+          <th class="th-data">STORE PACKING<br>PENDING</th>
+          <th class="th-data">B2C<br>PENDING</th>
+          <th class="th-data">B2B<br>PENDING</th>
+          <th class="th-manifest">MANIFEST<br>DONE</th>
+          <th class="th-subtotal">TOTAL</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+      </tbody>
+      <tfoot>
+        <tr class="grand-total-row" id="grandTotalRow">
+          <td colspan="3" class="gt-label">GRAND TOTAL</td>
+          <td class="gt-cell" id="gt-store">-</td>
+          <td class="gt-cell" id="gt-b2c">-</td>
+          <td class="gt-cell" id="gt-b2b">-</td>
+          <td class="gt-cell" id="gt-manifest">-</td>
+          <td class="gt-cell gt-subtotal" id="gt-subtotal">-</td>
+        </tr>
+      </tfoot>
+    </table>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
