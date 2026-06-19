@@ -455,14 +455,14 @@ tbody tr.row-soon td:first-child {
 }
 
 .ops-table.focus-view tbody tr {
-  height: calc((100dvh - var(--header-h) - var(--board-h) - var(--focus-head-h) - 96px) / 4);
+  height: calc((100dvh - var(--header-h) - var(--board-h) - var(--focus-head-h) - 34px) / 4);
 }
 
 .ops-table.focus-view tbody td {
-  padding: 16px 16px;
+  padding: 20px 20px;
   border-top-width: 3px;
   border-bottom-width: 3px;
-  font-size: clamp(2rem, 2.35vw, 3.25rem);
+  font-size: clamp(2.8rem, 3.2vw, 4.5rem);
 }
 
 .ops-table.focus-view tbody td:first-child {
@@ -478,27 +478,27 @@ tbody tr.row-soon td:first-child {
 }
 
 .ops-table.focus-view .cell-rank {
-  font-size: clamp(1.55rem, 1.75vw, 2.35rem);
+  font-size: clamp(2rem, 2.3vw, 3.2rem);
 }
 
 .ops-table.focus-view .courier-badge {
-  font-size: clamp(1.85rem, 2.25vw, 3.2rem);
+  font-size: clamp(2.5rem, 3vw, 4.2rem);
 }
 
 .ops-table.focus-view .cell-pickup {
-  font-size: clamp(1.55rem, 1.85vw, 2.55rem);
+  font-size: clamp(2rem, 2.4vw, 3.3rem);
 }
 
 .ops-table.focus-view .pickup-running,
 .ops-table.focus-view .pickup-soon {
-  min-height: 54px;
-  padding: 8px 12px;
+  min-height: 64px;
+  padding: 10px 16px;
   border-width: 3px;
-  font-size: clamp(1.2rem, 1.45vw, 2rem);
+  font-size: clamp(1.6rem, 2vw, 2.8rem);
 }
 
 .ops-table.focus-view .pickup-normal {
-  font-size: clamp(1.35rem, 1.6vw, 2.2rem);
+  font-size: clamp(1.8rem, 2.2vw, 3rem);
 }
 
 .ops-table.focus-view .grand-total-row {
